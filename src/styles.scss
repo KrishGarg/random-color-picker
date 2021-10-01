@@ -1,15 +1,15 @@
 $text-color: #1d84eb;
 $bg-color: #ecf6ff;
 
-.btn {
-  padding: 1em;
-  letter-spacing: 1px;
-  font-weight: 700;
-  border-radius: 100vw;
+@mixin basic-btn-props {
+  user-select: none;
+  outline: none !important;
+  transition: all 100ms;
   color: $text-color;
   background-color: $bg-color;
-  transition: all 100ms;
   border: 3px solid black;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 
   &:hover {
     cursor: pointer;
@@ -21,9 +21,23 @@ $bg-color: #ecf6ff;
   }
 
   &:active {
-    scale: 0.96;
+    transform: scale(0.96);
     outline: none;
   }
+
+  &:focus {
+    outline: none !important;
+    box-shadow: none;
+  }
+}
+
+.btn {
+  padding: 1em;
+  letter-spacing: 1px;
+  font-weight: 700;
+  border-radius: 100vw;
+
+  @include basic-btn-props;
 }
 
 .content {
@@ -38,27 +52,11 @@ $bg-color: #ecf6ff;
 .color-text {
   font-size: 1.5rem;
   font-weight: 800;
-  border: 2px solid black;
   padding: 0.3em;
   margin: 0.2em;
   border-radius: 100vw;
-  color: $text-color;
-  background-color: $bg-color;
-  user-select: none;
 
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:active,
-  &:hover {
-    animation: rainbow 2s infinite;
-  }
-
-  &:active {
-    scale: 0.96;
-    outline: none;
-  }
+  @include basic-btn-props;
 }
 
 .copy-text {

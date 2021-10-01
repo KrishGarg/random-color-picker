@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "parcel src/index.html --out-dir build/dev",
-    "build": "parcel build src/index.html --out-dir build/prod && echo https://random-color-picker.surge.sh > build/prod/CNAME",
+    "build": "parcel build src/index.html --out-dir build/prod --detailed-report && echo https://random-color-picker.surge.sh > build/prod/CNAME",
     "deploy": "surge build/prod",
     "clean:dev": "del-cli --force ./build/dev",
     "clean:prod": "del-cli --force ./build/prod",
