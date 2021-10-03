@@ -1,6 +1,10 @@
 $text-color: #1d84eb;
 $bg-color: #ecf6ff;
 
+body {
+  transition: background-color 200ms;
+}
+
 @mixin basic-btn-props {
   user-select: none;
   outline: none !important;
